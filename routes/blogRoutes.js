@@ -22,4 +22,16 @@ router.delete('/delete-blog/:id', blogController.deleteBlog);
 router.put('/update-blog/:id', blogController.updateBlog);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = router;

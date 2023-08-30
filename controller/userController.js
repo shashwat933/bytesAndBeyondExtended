@@ -52,7 +52,7 @@ exports.postLogin = async (req, res) => {
                 message: "Please enter the details of all the user"
             })
         }
-         const existingUser = await User.findOne({ email });
+        const existingUser = await User.findOne({ email });
         if (!existingUser) {
             return res.status(401).send({
                 success: false,
@@ -68,16 +68,14 @@ exports.postLogin = async (req, res) => {
 
         }
         const id = existingUser._id;
-        const token = await jwt.sign({ id }, process.env.SECRET_KEY, {
-            expiresIn: 600,
-        });
+        const token = await jwt.sign({ id }, process.env.SECRET_KEY);
 
 
 
         return res.status(200).send({
             success: true,
-            user:existingUser,
-            message: "Successfully Logged In",token 
+            user: existingUser,
+            message: "Successfully Logged In", token
         })
 
 
